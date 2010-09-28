@@ -20,3 +20,8 @@ Prompt('I just have one question: Do you feel lucky?', function(ans) {
         })
         .end();
 });
+
+/*
+Another useful test:
+Prompt(question,cb).ask().tap()...
+*/
