@@ -23,5 +23,8 @@ Prompt('I just have one question: Do you feel lucky?', function(ans) {
 
 /*
 Another useful test:
-Prompt(question,cb).ask().tap()...
+
+> Prompt(question,cb).ask().tap()...
+
+As is, this should break due to the question and cb arguments being mutually exclusive with .ask and .tap
 */
