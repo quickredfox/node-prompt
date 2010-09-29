@@ -51,7 +51,7 @@ If, however, you want to ask more than one question and would like to avoid nest
         .end();
 
 This variation is much more flexible, and is the recommended way to use Prompt
-for anything more than a single question.
+for anything more than a single question. In fact, the BASIC-style may go away soon depending.
 
 ## Bone-Picking:
 
@@ -59,10 +59,7 @@ Make a github issue and/or pull, write something (even a test that breaks Prompt
 
 ## Authors:
 
-### Maintainer: 
-Joshua Holbrook ( <http://jesusabdullah.github.com/> )
-
-### Contributors:
+* Joshua Holbrook ( <http://jesusabdullah.github.com/> )
 * Peteris Krumins ( <http://catonmat.net> )
 
 ## Licensing:
