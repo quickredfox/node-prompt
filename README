@@ -11,6 +11,8 @@ To my surprise, node.js didn't have anything quite like this, though it had the 
 
 ## Install:
 
+When this is done, you should be able to
+
     npm install prompt
 
 ## Usage:
@@ -50,4 +52,29 @@ If, however, you want to ask more than one question and would like to avoid nest
         })
         .end();
 
-This variation is much more flexible, and is the recommended way to use Prompt.
+This variation is much more flexible, and is the recommended way to use Prompt
+for anything more than a single question.
+
+## Authors:
+
+### Maintainer: 
+Joshua Holbrook ( <http://jesusabdullah.github.com/> )
+
+### Contributors:
+* Peteris Krumins ( <http://catonmat.net> )
+
+## Licensing:
+
+                DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                        Version 2, December 2004
+
+     Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+     Everyone is permitted to copy and distribute verbatim or modified
+     copies of this license document, and changing it is allowed as long
+     as the name is changed.
+
+                DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+       TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+      0. You just DO WHAT THE FUCK YOU WANT TO.
