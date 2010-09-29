@@ -1,0 +1,14 @@
+{
+    "name" : "prompt",
+    "version" : "0.0.1",
+    "description" : "Prompt the user of command line scripts while running.",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/jesusabdullah/prompt.git"
+    },
+    "author" : "Joshua Holbrook <josh.holbrook@gmail.com> (http://jesusabdullah.github.com)",
+    "contributors" : [
+        "Peteris Krumins (http://catonmat.net)"
+    ],
+    "engine" : ["node >=0.1.100"]
+}
