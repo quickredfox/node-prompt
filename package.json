@@ -2,6 +2,9 @@
     "name" : "prompt",
     "version" : "0.0.1",
     "description" : "Prompt the user of command line scripts while running.",
+    "modules" : {
+        "index" : "./prompt.js"
+    },
     "repository" : {
         "type" : "git",
         "url" : "http://github.com/jesusabdullah/node-prompt.git"
