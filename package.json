@@ -4,7 +4,7 @@
     "description" : "Prompt the user of command line scripts while running.",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/jesusabdullah/prompt.git"
+        "url" : "http://github.com/jesusabdullah/node-prompt.git"
     },
     "author" : "Joshua Holbrook <josh.holbrook@gmail.com> (http://jesusabdullah.github.com)",
     "contributors" : [
