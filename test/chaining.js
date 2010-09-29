@@ -1,4 +1,4 @@
-var Prompt = require('./prompt');
+var Prompt = require('prompt');
 
 exports.chaining = Prompt()
     .ask('What is your name?', 'name')

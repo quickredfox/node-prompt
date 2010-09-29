@@ -1,4 +1,4 @@
-var Prompt = require('./prompt');
+var Prompt = require('prompt');
 
 exports.cb = Prompt('Do you feel lucky?', function(x) {
     console.log('You said: '+ans);
