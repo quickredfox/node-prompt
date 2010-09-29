@@ -11,8 +11,6 @@ To my surprise, node.js didn't have anything quite like this, though it had the 
 
 ## Install:
 
-When this is done, you should be able to
-
     npm install prompt
 
 ## Usage:
@@ -54,6 +52,10 @@ If, however, you want to ask more than one question and would like to avoid nest
 
 This variation is much more flexible, and is the recommended way to use Prompt
 for anything more than a single question.
+
+## Bone-Picking:
+
+Make a github issue and/or pull, write something (even a test that breaks Prompt) and request that I pull.
 
 ## Authors:
 
