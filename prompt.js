@@ -1,3 +1,6 @@
+var sys = require('sys');
+var stdio = process.binding('stdio');
+
 module.exports = Prompt;
 function Prompt(question, cb) {
     if (!(this instanceof Prompt)) return new Prompt(question, cb);
@@ -9,6 +12,11 @@ function Prompt(question, cb) {
 
     self.ask = function (question, into) {
         queue.push({ task : 'ask', q: question, into: into });
+        return self;
+    }
+
+    self.discreet = function (question, into) {
+        queue.push({ task : 'discreet', q: question, into: into });
         return self;
     }
 
@@ -24,7 +32,7 @@ function Prompt(question, cb) {
     function processQueue () { 
         task = queue.shift();
         if (task === undefined) return;
-        if (task.task == 'ask') {
+        if (task.task == 'ask' || task.task == 'discreet') {
             prompt(task.q, function (resp) {
                  if (typeof task.into === 'string') {
                      vars[task.into] = resp;
@@ -33,7 +41,7 @@ function Prompt(question, cb) {
                      task.into(resp);
                  }
                  processQueue();
-            });
+            }, task.task == 'ask' ? false : true);
         }
         else if (task.task == 'tap') {
             task.f(vars);
@@ -41,15 +49,37 @@ function Prompt(question, cb) {
         }
     }
 
-    function prompt(question, cb) {
+    function prompt(question, cb, quiet) {
         var p = process.openStdin();
         console.log(question);
-        p.on('data', function(line) {
-            p.removeAllListeners('data');
-            cb(line);
-            if (p.listeners('data').length === 0) {
-                p.destroy();
-            }
-        });
+        if (quiet) {
+            //Basically stolen from isaacs/s npm/utils/prompt.js
+            stdio.setRawMode('true');
+            var line = "";
+            p.on('data', function(ch) {
+                ch = "" + ch;
+                switch (ch) {
+                    case "\n": case "\r": case "\r\n": case "\u0004":
+                        stdio.setRawMode('false');
+                        p.removeAllListeners('data');
+                        cb(line);
+                    case "\u0003": case "\0":
+                        stdio.setRawMode('false');
+                        process.exit();
+                        break;
+                    default:
+                        line += ch;
+                        break
+                }
+            });
+        } else {
+            p.on('data', function(line) {
+                p.removeAllListeners('data');
+                cb(line);
+                if (p.listeners('data').length === 0) {
+                    p.destroy();
+                }
+            });
+        }
     }
 }
