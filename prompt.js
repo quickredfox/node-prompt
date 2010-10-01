@@ -25,6 +25,9 @@ function Prompt(question, cb) {
         return self;
     }
 
+    //Getting rid of "end" would mean making processQueue() starting automatically,
+    //given a queue length of 1 or something. Totally doable, but this change isn't a priority.
+    //One suggestion, by James, is to setTimeout on the first method.
     self.end = function () {
         processQueue();
     }
