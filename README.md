@@ -15,22 +15,11 @@ To my surprise, node.js didn't have anything quite like this, though it had the 
 
 ## Usage:
 
-There are two ways you can use this module:
+While this module was originally inspired by BASIC-style prompts, the current api is quite a bit different, but much more useful in an asynchronous context.
 
-### 1. Like it's 1995
+Prompt() is an object with the methods .ask, .tap and .end.  Chain these methods together to ask questions and do things to them, then call .end() to cap the chain.
 
-The way most inspired by BASIC, etc. is only different in that it uses callbacks instead of synchronous assignment:
-
-    var Prompt = require('prompt');
-    Prompt('Give me a radius: ', function(r) {
-        console.log('Your area is '+ pi*r*r  + '!');
-    });
-
-As you can see, this mirrors the BASIC style pretty well.
-
-### 2. Like it's the 2000's
-
-If, however, you want to ask more than one question and would like to avoid nested callbacks, this module also supports method chaining! For example:
+It's probably easiest to follow from example:
 
     var Prompt = require('./prompt');
 
@@ -46,12 +35,9 @@ If, however, you want to ask more than one question and would like to avoid nest
         .ask('What is your favorite color?', 'color')
         .tap(function (vars) {
             console.log('You said: ' + vars.color);
-            console.log('Okay, you may pass!');
+            console.log('Okay, off you go!');
         })
         .end();
-
-This variation is much more flexible, and is the recommended way to use Prompt
-for anything more than a single question. In fact, the BASIC-style may go away soon depending.
 
 ## Asking for passwords and stuff:
 
